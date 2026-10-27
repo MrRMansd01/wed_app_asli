@@ -1,0 +1,16 @@
+{
+  "name": "payeh-webapp",
+  "version": "1.0.0",
+  "description": "وب‌اپ پایه (API + کلاینت React)",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix api && npm install --prefix client",
+    "start": "node scripts/copy-env.js && concurrently -n api,webapp -c yellow,cyan \"npm --prefix api start\" \"npm --prefix client start\"",
+    "start:api": "npm --prefix api start",
+    "start:client": "npm --prefix client start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "dotenv": "^16.4.5"
+  }
+}
