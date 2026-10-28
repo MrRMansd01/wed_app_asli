@@ -26,9 +26,7 @@ const AddChannelModal = ({ onClose, onAddChannel }) => {
             const token = getAuthToken();
             if (!token) return;
             try {
-                const response = await axios.get('http://localhost:3001/api/channels/users', {
-                    headers: { 'Authorization': `Bearer ${token}` }
-                });
+                const response = await api.get('/channels/users');
                 setUsers(response.data);
             } catch (error) {
                 console.error("Error fetching users for modal:", error);

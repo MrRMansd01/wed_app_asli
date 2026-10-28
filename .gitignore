@@ -1,0 +1,16 @@
+# وابستگی‌ها
+node_modules/
+
+# متغیرهای محیطی (کلیدها را کامیت نکنید)
+.env
+.env.local
+client/.env
+client/.env.local
+api/.env
+api/.env.local
+
+# خروجی بیلد کلاینت (CRA)
+client/build/
+
+# لاگ‌ها
+npm-debug.log*
