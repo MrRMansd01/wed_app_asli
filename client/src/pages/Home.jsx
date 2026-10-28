@@ -12,22 +12,6 @@ const toYYYYMMDD = (date) => {
   return `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
 };
 
-const formatDatePersian = (date, options = {}) => {
-  if (!date || !(date instanceof Date) || Number.isNaN(date.getTime())) return '';
-  return date.toLocaleDateString('fa-IR', { calendar: 'persian', ...options });
-};
-
-const formatShortJalaliYYMMDD = (date) => {
-  if (!date || !(date instanceof Date) || Number.isNaN(date.getTime())) return '';
-  const s = date.toLocaleDateString('fa-IR', {
-    calendar: 'persian',
-    year: '2-digit',
-    month: '2-digit',
-    day: '2-digit',
-  });
-  return s.replace(/\//g, ':');
-};
-
 // --- کامپوننت پاپ‌آپ با قابلیت بازخورد ---
 const CompletionPopup = ({ task, onClose, onSubmitFeedback }) => {
   const [feedback, setFeedback] = useState('');
@@ -153,7 +137,7 @@ const Home = () => {
       }
     };
     fetchTasks();
-  }, []);
+  }, [today]);
 
   const handleCompleteTask = async (taskToComplete) => {
     const originalTasks = tasks;
